@@ -9,14 +9,7 @@ dir_path="$(pwd)/$name_dir"
 mkdir $name_dir
 for val in $(find $directory -name "*.$extension")
 do
-	name=${val##*/}
-	name=${name%.*}
-	i=0
-	for upd in $(find $dir_path -name "$name*.$extension")
-	do
-		((i++))
-	done
-	cp $val $dir_path/$name\_$i.$extension
+	cp --parents $val $dir_path
 done
-tar -cfa $name_arch $name_dir
+tar -acf $name_arch $name_dir
 echo done
