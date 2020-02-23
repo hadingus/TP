@@ -16,7 +16,7 @@ do
 	do
 		((i++))
 	done
-	cp $val $dir_path/$name.$extension
+	cp $val $dir_path/$name\_$i.$extension
 done
 tar -cf $name_arch.tar.gz $name_dir
 echo done
