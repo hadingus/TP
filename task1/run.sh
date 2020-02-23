@@ -18,5 +18,5 @@ do
 	done
 	cp $val $dir_path/$name\_$i.$extension
 done
-tar -cf $name_arch.tar.gz $name_dir
+tar -cfa $name_arch.tar.gz $name_dir
 echo done
