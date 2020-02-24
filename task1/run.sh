@@ -6,7 +6,7 @@ name_dir=$3
 name_arch=$4
 
 dir_path="$(pwd)/$name_dir"
-mkdir $name_dir
+mkdir -p $name_dir
 for file in $(find $directory -name "*.$extension")
 do
 	name=${file##*/}
@@ -16,7 +16,12 @@ do
 	do
 		((cnt++))
 	done
-	cp $file $dir_path/$name\_$cnt.$extension
+	if [ "$cnt" -eq 0 ]
+	then 
+		cp $file $dir_path/$name.$extension
+	else
+		cp $file $dir_path/$name\_$cnt.$extension
+	fi
 done
 tar -acf $name_arch $name_dir
 echo done
