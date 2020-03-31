@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.0)
+
+if (ARM_BUILD) 
+  SET(CMAKE_SYSTEM_PROCESSOR arm)
+  SET(CMAKE_C_COMPILER ${TOOLCHAIN}/arm-linux-gnueabihf-gcc)
+  SET(CMAKE_CXX_COMPILER ${TOOLCHAIN}/arm-linux-gnueabihf-g++)
+endif()
+
+project(SimpleLibrary)
+include_directories(include)
+
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${SimpleLibrary_SOURCE_DIR}/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${SimpleLibrary_SOURCE_DIR}/lib)
+add_subdirectory(src)
+add_executable(Main main.cpp)
+add_executable(MainLib main_lib.cpp)
+
+target_link_libraries(MainLib buffer)
