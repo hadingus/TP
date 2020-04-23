@@ -23,3 +23,10 @@ jobs:
         cd task4/build/
         cmake .. && make && sudo make install
         
+        
+    - name: Test
+      uses: akhtakhtyamovpavel/ActionGtestReport@v0.0.9
+      with:
+        exec-path: bin/CTestExe
+        report-path: test-report.xml
+        working-directory: task4
