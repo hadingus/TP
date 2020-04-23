@@ -18,8 +18,8 @@ jobs:
     - name: Build
       run: |
         mkdir task4/3rdparty
-        git clone https://github.com/google/googletest.git task4/3rdparty
+        git clone https://github.com/google/googletest.git task4/3rdparty/
         mkdir task4/build
-        cd task4/build
+        cd task4/build/
         cmake .. && make && make install
         
