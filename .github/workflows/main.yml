@@ -18,7 +18,7 @@ jobs:
         mkdir task4/3rdparty
         git clone https://github.com/google/googletest.git task4/3rdparty/
         mkdir task4/build
-        cmake -DCMAKE_INSTALL_PREFIX=temp .. && make && make install
+        cmake -DCMAKE_INSTALL_PREFIX=temp .. && make && sudo make install
 
     - name: Test
       uses: akhtyamovpavel/ActionGtestReport@v0.0.9
