@@ -20,6 +20,8 @@ void TreeTestCase::SetUpTestCase() {
     std::ofstream fout(file_path);
     fout << "Hello world";
     fout.close();
+
+    create_directory(test_path + "/child");
 }
 
 void TreeTestCase::TearDownTestCase() {
